@@ -1,0 +1,104 @@
+<p id="notice"><%= notice %></p>
+<div id="main">
+	<div class="main_top">
+		<h1>Listing Orders</h1>
+	</div>
+
+	<div class="main_body">
+
+<% if !signed_in? %>
+
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Customer</th>
+    <th>Purchase Date</th>
+    <th>Delivery Address</th>
+    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @orders.each do |order| %>
+	
+  <tr>
+    <% @products.each do |product| %> 
+    <% if product.id == order.product_id %>
+	<td> <%= link_to product.name , product %> </td>
+
+	<% end %>
+    <% end %>	
+    
+	<% @customers.each do |customer| %>
+	<% if customer.id == order.customer_id %>
+	<td> <%= link_to customer.name , customer %> </td>
+	
+	<% end %>
+    <% end %>	
+	
+    <td><%= order.dateOfPurchase %></td>
+    <td><%= order.deliveryAddress %></td>
+    
+    <td><%= link_to 'Show', order %></td>
+    <td><%= link_to 'Edit', edit_order_path(order) %></td>
+    <td><%= link_to 'Destroy', order, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<% else %>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Customer</th>
+    <th>Purchase Date</th>
+    <th>Delivery Address</th>
+    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @orders.each do |order| %>
+ <% if @current_user.id == order.customer_id %>
+  <tr>
+    <% @products.each do |product| %> 
+    <% if product.id == order.product_id %>
+	<td> <%= link_to product.name , product %> </td>
+
+	<% end %>
+    <% end %>	
+    
+	<% @customers.each do |customer| %>
+	<% if customer.id == order.customer_id %>
+	<td> <%= link_to customer.name , customer %> </td>
+	
+	<% end %>
+    <% end %>	
+	
+    <td><%= order.dateOfPurchase %></td>
+    <td><%= order.deliveryAddress %></td>
+   
+    <td><%= link_to 'Show', order %></td>
+    <td><%= link_to 'Edit', edit_order_path(order) %></td>
+    <td><%= link_to 'Destroy', order, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+<% end %>
+</table>
+<% end %>
+
+
+<br />
+
+
+
+</div>
+<div class="main_bottom">
+			
+        </div>
+
+</div>

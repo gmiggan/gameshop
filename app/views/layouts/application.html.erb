@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gameshop</title>
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/themes/base/jquery-ui.css", "application", :media => "all" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application", "rails.validations" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="page">
+		<div id="banner">
+	
+		<h1>Joystick</h1>
+	
+		<ul>
+			<% if !signed_in? %>
+		<li><%= link_to "Sign In", signin_path %></li>	
+		<li><%= link_to "Sign Up", new_customer_path%></li>			
+		<% else %>
+		<li><%= link_to "Sign Out", signout_path %></li>
+		<li><%= link_to "Order History", orders_path%></li>
+	<%end %>
+	  <li><%= link_to "Products", products_path%></li>
+	  <li><%= link_to "Review", reviews_path%></li>
+	  <li><%= link_to "About Us", about_path%></li> 
+</ul>
+</div>
+
+</div>
+
+<%= yield %>
+<div id="footer">
+        <p>
+		<%= mail_to "gearoid.miggan@mydit.ie", "Any Queries? email us!!" %>
+         || web development</a> by <a href="http://www.linkedin.com/pub/gear%C3%B3id-miggan/84/289/991">gearoid miggan</a>
+        </p>
+        </div>
+</div>
+</body>
+</html>

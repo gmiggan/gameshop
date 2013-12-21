@@ -1,0 +1,29 @@
+<div id="main">
+	<div class="main_top">
+		<h1>Sign In</h1>
+	</div>
+		<div class="main_body">
+		
+<%= form_tag sessions_path do %>
+    <table> 
+		<tr><h3>(Some functionality requires a login)</h3></tr>
+     <tr>  
+          <td><%= label_tag :email %></td>
+            <td><%= text_field_tag :email, params[:email] %>
+        </tr>
+        <tr>  
+          <td><%= label_tag :password %></td> 
+           <td><%= password_field_tag :password %>
+        </tr>   
+     <tr>  
+		<td><%= submit_tag "Sign in" %></td>
+        
+		</tr> 
+   </table>
+<% end %>
+</div>
+<div class="main_bottom">
+			
+        </div>
+
+</div>

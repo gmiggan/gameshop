@@ -1,0 +1,53 @@
+
+
+<div id="main">
+	<div class="main_top">
+		
+	</div>
+
+	<div class="main_body">
+	<p id="notice"><%= notice %></p>
+<p>
+  <b>Product:</b>
+      <% @products.each do |product| %> 
+    <% if product.id == @order.product_id %>
+	<td> <%= link_to product.name , product %> </td>
+
+	<% end %>
+    <% end %>	
+</p>
+
+<p>
+  <b>Customer:</b>
+   <% @customers.each do |customer| %> 
+    <% if customer.id == @order.customer_id %>
+	<td> <%= link_to customer.name , customer %> </td>
+
+	<% end %>
+    <% end %>	
+</p>
+
+<p>
+  <b>Purchase Date:</b>
+  <%= @order.dateOfPurchase %>
+</p>
+
+<p>
+  <b>Delivery Address:</b>
+  <%= @order.deliveryAddress %>
+</p>
+
+<p>
+  <b>Credit Card:</b>
+  <%= @order.creditCard %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
+
+</div>
+<div class="main_bottom">
+			
+        </div>
+
+</div>

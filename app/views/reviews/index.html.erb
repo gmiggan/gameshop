@@ -1,0 +1,46 @@
+<div id="main">
+	<div class="main_top">
+		<h1>Listing Reviews</h1>
+	</div>
+	<div class="main_body">
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Customer</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  
+<% @reviews.each do |review| %>
+  <tr>
+    <% @products.each do |product| %> 
+    <% if product.id == review.product_id %>
+	<td><%= link_to product.name , product %></td>
+		
+	<% end %>
+    <% end %>	
+    
+	<% @customers.each do |customer| %>
+	<% if customer.id == review.customer_id %>
+		<td><%= customer.name %></td>
+	<% end %>
+    <% end %>
+    <td><%= review.comment %></td>
+    
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+
+</div>
+<div class="main_bottom">
+			
+        </div>
+
+</div>

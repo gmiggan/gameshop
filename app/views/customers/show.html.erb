@@ -1,0 +1,54 @@
+
+<div id="main">
+	<div class="main_top">
+		
+	</div>
+
+	<div class="main_body">
+<p>
+  <p id="notice"><%= notice %></p>
+  <h1> <%= @customer.name %> </h1>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @customer.address %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= mail_to @customer.email, @customer.email %>
+</p>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@customer.latitude}%2C#{@customer.longitude}" %>
+
+<p>
+<h3>REVIEWS:</h3>
+</p>
+<% @reviews.each do |review| %> 
+    <% if @customer.id == review.customer_id %>
+		<p>
+		<b>--------------------------</b>
+		<p>
+		  <b></b>
+		  <%= review.comment %>
+		  <% @products.each do |product| %> 
+    <% if product.id == review.product_id %>
+	 <b><%= link_to product.name , product %>
+		 
+	<% end %>
+    <% end %>	
+		</p>
+	
+	
+	<% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
+
+</div>
+<div class="main_bottom">
+			
+        </div>
+
+</div>

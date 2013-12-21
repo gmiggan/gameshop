@@ -1,0 +1,72 @@
+
+<div id="main">
+	<div class="main_top">
+		
+	</div>
+	<div class="main_body">
+	<p id="notice"><%= notice %></p>
+<%=image_tag(@product.photo, :alt => "My Photo", :align => "left") %>
+<p>
+  
+  <h1> <%= @product.name %></h1>
+</p>
+
+
+
+<p>
+  <b>Rating:</b>
+  <%= @product.rating %>
+</p>
+
+<p>
+  <b>Producer:</b>
+  <%= @product.prodcuer %>
+</p>
+
+<p>
+  <b>Release Date:</b>
+  <%= @product.releasedate %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @product.price %>
+</p>
+
+<p>
+<%= link_to 'Buy Now', new_order_path(id: @product) %>
+</p>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div id="faqs">
+<h3>~~~~~~~~~~See what other people said~~~~~~~~~~ </h3>
+<div>
+<% @reviews.reverse.each do |review| %> 
+    <% if @product.id == review.product_id %>
+		
+		  <p><%= review.comment %>
+		  <b> 		-posted <%= time_ago_in_words(review.created_at) %> ago by <%= review.customer.name %></b></p>
+		  
+	<% end %>
+<% end %>
+</div>
+</div>
+<%= link_to 'Write your own review', new_review_path(id: @product)%>
+<br>
+<br>
+ 
+<%= link_to 'Back', products_path %>
+
+</div>
+<div class="main_bottom">
+			
+        </div>
+
+</div>

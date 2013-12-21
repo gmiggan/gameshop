@@ -1,0 +1,31 @@
+
+<div id="main">
+<div class="main_top">
+	<p id="notice"><%= notice %></p>
+	</div>
+	<div class="main_body">
+	
+<p>
+  <b>Product:</b>
+  <%= @review.product.name %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= @review.customer.name %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @review.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>
+</div>
+<div class="main_bottom">
+			
+        </div>
+
+</div>

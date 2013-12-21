@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  rating: MyString
+  prodcuer: MyString
+  releasedate: 2013-12-17
+  price: 9.99
+  photo: MyString
+
+two:
+  name: MyString
+  rating: MyString
+  prodcuer: MyString
+  releasedate: 2013-12-17
+  price: 9.99
+  photo: MyString

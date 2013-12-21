@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  product_id: 1
+  customer_id: 1
+  dateOfPurchase: 2013-10-09
+  deliveryAddress: MyString
+  creditCard: MyString
+
+two:
+  product_id: 1
+  customer_id: 1
+  dateOfPurchase: 2013-10-09
+  deliveryAddress: MyString
+  creditCard: MyString
